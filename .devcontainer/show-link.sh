@@ -5,11 +5,11 @@ if [ -z "$UUID" ]; then echo "[g2ray] UUID پیدا نشد."; exit 1; fi
 SNI="${CODESPACE_NAME}-443.app.github.dev"
 
 # Direct link using Codespace domain
-DIRECT_LINK="vless://${UUID}@${SNI}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=xhttp&mode=packet-up&path=%2F#quiet-net-direct"
+DIRECT_LINK="vless://${UUID}@${SNI}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=ws&path=%2Fgraphql#quiet-net-direct"
 
 # SNI Proxy link (using Hetzner proxy or custom clean IP)
 PROXY_IP="94.130.50.12"
-PROXY_LINK="vless://${UUID}@${PROXY_IP}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=xhttp&mode=packet-up&path=%2F#quiet-net-proxy"
+PROXY_LINK="vless://${UUID}@${PROXY_IP}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=ws&path=%2Fgraphql#quiet-net-proxy"
 
 echo ""
 echo "=========================================================================="
