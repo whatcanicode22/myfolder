@@ -9,6 +9,6 @@ show-link.sh
 # Keepalive — ping every 300 seconds to prevent idle shutdown
 tmux new-window -t g2ray -n keepalive
 tmux send-keys -t g2ray:keepalive "while true; do curl -s --max-time 5 https://github.com/ -o /dev/null; sleep 300; done" Enter
-echo "[g2ray] Keepalive فعال است — هر 300 ثانیه یک بار ping"
-echo "[g2ray] سرور داخل tmux اجرا شد"
-echo "[g2ray] برای دیدن log: tmux attach -t g2ray"
+echo "[g2ray] Keepalive is active — pinging every 300 seconds"
+echo "[g2ray] Server is running inside tmux"
+echo "[g2ray] To view logs: tmux attach -t g2ray"

@@ -40,7 +40,7 @@
         "security": "none",
         "xhttpSettings": {
           "mode": "auto",
-          "path": "/",
+          "path": "/api",
           "maxUploadSize": 1000000,
           "maxConcurrentUploads": 10,
           "xPaddingBytes": "1-1",
