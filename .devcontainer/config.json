@@ -36,11 +36,18 @@
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "ws",
+        "network": "xhttp",
         "security": "none",
-        "wsSettings": {
-          "path": "/graphql",
-          "headers": {}
+        "xhttpSettings": {
+          "mode": "auto",
+          "path": "/",
+          "maxUploadSize": 1000000,
+          "maxConcurrentUploads": 10,
+          "xPaddingBytes": "1-1",
+          "xPaddingObfsMode": true,
+          "xPaddingKey": "xtest",
+          "xPaddingHeader": "XTest",
+          "scMaxEachPostBytes": "1000000"
         }
       },
       "sniffing": {

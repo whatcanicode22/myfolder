@@ -3,14 +3,12 @@ CONFIG="/etc/xray/g2ray.json"
 UUID=$(grep -o '"id": *"[^"]*"' "$CONFIG" | head -1 | grep -o '"[^"]*"$' | tr -d '"')
 if [ -z "$UUID" ]; then echo "[g2ray] UUID پیدا نشد."; exit 1; fi
 SNI="${CODESPACE_NAME}-443.app.github.dev"
-
 # Direct link using Codespace domain (SSL is handled by GitHub, and client must initiate TLS handshake)
-DIRECT_LINK="vless://${UUID}@${SNI}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=ws&path=%2Fgraphql#quiet-net-direct"
+DIRECT_LINK="vless://${UUID}@${SNI}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=xhttp&mode=auto&path=%2F&xPaddingBytes=1-1&xPaddingObfsMode=true&xPaddingKey=xtest&xPaddingHeader=XTest&scMaxEachPostBytes=1000000&x-host=${SNI}#quiet-net-direct"
 
 # SNI Proxy link (using Hetzner proxy or custom clean IP)
 PROXY_IP="94.130.50.12"
-PROXY_LINK="vless://${UUID}@${PROXY_IP}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=ws&path=%2Fgraphql#quiet-net-proxy"
-
+PROXY_LINK="vless://${UUID}@${PROXY_IP}:443?encryption=none&security=tls&sni=${SNI}&host=${SNI}&fp=chrome&allowInsecure=1&type=xhttp&mode=auto&path=%2F&xPaddingBytes=1-1&xPaddingObfsMode=true&xPaddingKey=xtest&xPaddingHeader=XTest&scMaxEachPostBytes=1000000&x-host=${SNI}#quiet-net-proxy"
 echo ""
 echo "=========================================================================="
 echo "  [g2ray] اطلاعات اتصال شما آماده است:"
